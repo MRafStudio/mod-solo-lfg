@@ -23,7 +23,22 @@ public:
         // Announce Module
         if (sConfigMgr->GetOption<bool>("SoloLFG.Announce", true))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Solo Dungeon Finder |rmodule.");
+            {
+                WorldSession* session = player->GetSession();
+                std::string message = "";
+                switch (session->GetSessionDbLocaleIndex())
+                {
+                case LOCALE_ruRU:
+                {
+                    message = "На сервере запущен модуль";
+                    break;
+                }
+                default:
+                    message = "This server is running the";
+                    break;
+                }
+                ChatHandler(player->GetSession()).SendSysMessage(message + " |cff4CFF00SoloLFG |r");
+            }
         }
     }
 };
