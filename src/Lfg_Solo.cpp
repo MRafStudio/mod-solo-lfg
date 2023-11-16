@@ -33,7 +33,7 @@ public:
                     break;
                 }
                 default:
-                    ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SoloLFG |r");
+                    ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SoloLFG |rmodule.");
                     break;
                 }
             }
